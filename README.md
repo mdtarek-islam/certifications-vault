@@ -1,1 +1,1 @@
-# Verified Certifications — Tarek
+# Verified Certifications - Tarek
