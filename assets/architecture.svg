@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-labelledby="t d">
+  <title id="t">Certificate taxonomy and timeline</title>
+  <desc id="d">Two issuers feed four domains. Each domain row carries its certificates under the completion date, 15, 16 or 17 October 2026. Eleven certificates in total.</desc>
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #e6edf3; }
+    .sec { fill: #8b949e; font-size: 12px; }
+    .name { font-size: 14px; font-weight: 600; }
+    .num { font-size: 12px; font-weight: 600; }
+    .node { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+    .issuer { stroke: #58a6ff; }
+    .cert { stroke: #3fb950; }
+    .rail { fill: none; stroke: #30363d; stroke-width: 1.5; }
+    .guide { fill: none; stroke: #30363d; stroke-width: 1; stroke-dasharray: 2 4; }
+    .pulse { fill: none; stroke-width: 2.5; stroke-linecap: square; stroke-dasharray: 12 300; animation: flow 3.6s linear infinite; }
+    .blue { stroke: #58a6ff; }
+    .green { stroke: #3fb950; }
+    @keyframes flow { from { stroke-dashoffset: 12; } to { stroke-dashoffset: -100; } }
+    @media (prefers-reduced-motion: reduce) {
+      .pulse { animation: none; stroke-dasharray: none; opacity: 0.45; }
+    }
+  </style>
+  <rect width="960" height="600" fill="#0d1117"/>
+  <text x="24" y="30" font-size="16" font-weight="600">Certificate taxonomy and timeline</text>
+  <text x="14" y="64" class="sec">Issuer</text>
+  <text x="250" y="64" class="sec">Domain</text>
+  <text x="470" y="64" class="sec">Certificates by completion date, 2026</text>
+
+  <!-- timeline axis and date guides -->
+  <path class="rail" d="M560 105 H880"/>
+  <path class="guide" d="M560 119 V445"/>
+  <path class="guide" d="M720 119 V445"/>
+  <path class="guide" d="M880 119 V445"/>
+  <rect class="node" x="520" y="91" width="80" height="28" rx="6"/>
+  <text x="560" y="110" text-anchor="middle" class="num">15 Oct</text>
+  <rect class="node" x="680" y="91" width="80" height="28" rx="6"/>
+  <text x="720" y="110" text-anchor="middle" class="num">16 Oct</text>
+  <rect class="node" x="840" y="91" width="80" height="28" rx="6"/>
+  <text x="880" y="110" text-anchor="middle" class="num">17 Oct</text>
+
+  <!-- issuer to domain rails -->
+  <path class="rail" d="M174 195 H205 V142 H250"/>
+  <path class="rail" d="M174 195 H205 V232 H250"/>
+  <path class="rail" d="M174 195 H205 V322 H250"/>
+  <path class="rail" d="M174 195 H205 V412 H250"/>
+  <path class="rail" d="M174 510 H226 V338 H250"/>
+  <path class="rail" d="M174 510 H226 V428 H250"/>
+
+  <!-- domain to certificate rails -->
+  <path class="rail" d="M400 150 H914"/>
+  <path class="rail" d="M400 240 H880"/>
+  <path class="rail" d="M400 330 H914"/>
+  <path class="rail" d="M400 420 H880"/>
+
+  <!-- pulses, stage 1: issuer to domain -->
+  <path class="pulse blue" pathLength="100" style="animation-delay:0s" d="M174 195 H205 V142 H250"/>
+  <path class="pulse blue" pathLength="100" style="animation-delay:0.3s" d="M174 195 H205 V232 H250"/>
+  <path class="pulse blue" pathLength="100" style="animation-delay:0.6s" d="M174 195 H205 V322 H250"/>
+  <path class="pulse blue" pathLength="100" style="animation-delay:0.9s" d="M174 195 H205 V412 H250"/>
+  <path class="pulse blue" pathLength="100" style="animation-delay:0.2s" d="M174 510 H226 V338 H250"/>
+  <path class="pulse blue" pathLength="100" style="animation-delay:0.5s" d="M174 510 H226 V428 H250"/>
+
+  <!-- pulses, stage 2: domain to certificate -->
+  <path class="pulse green" pathLength="100" style="animation-delay:1.2s" d="M400 150 H914"/>
+  <path class="pulse green" pathLength="100" style="animation-delay:1.5s" d="M400 240 H880"/>
+  <path class="pulse green" pathLength="100" style="animation-delay:1.8s" d="M400 330 H914"/>
+  <path class="pulse green" pathLength="100" style="animation-delay:2.1s" d="M400 420 H880"/>
+
+  <!-- issuers -->
+  <rect class="node issuer" x="14" y="163" width="160" height="64" rx="6"/>
+  <text x="94" y="184" text-anchor="middle" class="name">AWS Training and</text>
+  <text x="94" y="201" text-anchor="middle" class="name">Certification</text>
+  <text x="94" y="219" text-anchor="middle" class="sec">6 certificates</text>
+  <rect class="node issuer" x="14" y="478" width="160" height="64" rx="6"/>
+  <text x="94" y="505" text-anchor="middle" class="name">Claude Academy</text>
+  <text x="94" y="525" text-anchor="middle" class="sec">5 completion badges</text>
+
+  <!-- domains -->
+  <rect class="node" x="250" y="126" width="150" height="48" rx="6"/>
+  <text x="325" y="148" text-anchor="middle" class="name">Cloud</text>
+  <text x="325" y="165" text-anchor="middle" class="sec">2 certificates</text>
+  <rect class="node" x="250" y="216" width="150" height="48" rx="6"/>
+  <text x="325" y="238" text-anchor="middle" class="name">Machine learning</text>
+  <text x="325" y="255" text-anchor="middle" class="sec">1 certificate</text>
+  <rect class="node" x="250" y="306" width="150" height="48" rx="6"/>
+  <text x="325" y="328" text-anchor="middle" class="name">Generative AI</text>
+  <text x="325" y="345" text-anchor="middle" class="sec">4 certificates</text>
+  <rect class="node" x="250" y="396" width="150" height="48" rx="6"/>
+  <text x="325" y="418" text-anchor="middle" class="name">AI tooling</text>
+  <text x="325" y="435" text-anchor="middle" class="sec">4 certificates</text>
+
+  <!-- certificates, Cloud row -->
+  <g><title>1. AWS Billing and Cost Management</title>
+    <rect class="node cert" x="818" y="137" width="56" height="26" rx="6"/>
+    <text x="846" y="155" text-anchor="middle" class="num">#1</text></g>
+  <g><title>6. Job Roles in the Cloud</title>
+    <rect class="node cert" x="886" y="137" width="56" height="26" rx="6"/>
+    <text x="914" y="155" text-anchor="middle" class="num">#6</text></g>
+  <!-- Machine learning row -->
+  <g><title>2. Fundamentals of Machine Learning and Artificial Intelligence</title>
+    <rect class="node cert" x="852" y="227" width="56" height="26" rx="6"/>
+    <text x="880" y="245" text-anchor="middle" class="num">#2</text></g>
+  <!-- Generative AI row -->
+  <g><title>10. AI Fluency: Framework and Foundations</title>
+    <rect class="node cert" x="658" y="317" width="56" height="26" rx="6"/>
+    <text x="686" y="335" text-anchor="middle" class="num">#10</text></g>
+  <g><title>11. AI Capabilities and Limitations</title>
+    <rect class="node cert" x="726" y="317" width="56" height="26" rx="6"/>
+    <text x="754" y="335" text-anchor="middle" class="num">#11</text></g>
+  <g><title>3. Fundamentals of Prompt Engineering with Claude</title>
+    <rect class="node cert" x="818" y="317" width="56" height="26" rx="6"/>
+    <text x="846" y="335" text-anchor="middle" class="num">#3</text></g>
+  <g><title>5. Introduction to Generative AI: Art of the Possible</title>
+    <rect class="node cert" x="886" y="317" width="56" height="26" rx="6"/>
+    <text x="914" y="335" text-anchor="middle" class="num">#5</text></g>
+  <!-- AI tooling row -->
+  <g><title>7. Claude 101</title>
+    <rect class="node cert" x="498" y="407" width="56" height="26" rx="6"/>
+    <text x="526" y="425" text-anchor="middle" class="num">#7</text></g>
+  <g><title>8. Claude Code 101</title>
+    <rect class="node cert" x="566" y="407" width="56" height="26" rx="6"/>
+    <text x="594" y="425" text-anchor="middle" class="num">#8</text></g>
+  <g><title>9. Claude Code in Action</title>
+    <rect class="node cert" x="692" y="407" width="56" height="26" rx="6"/>
+    <text x="720" y="425" text-anchor="middle" class="num">#9</text></g>
+  <g><title>4. Introduction to Claude Platform on AWS</title>
+    <rect class="node cert" x="852" y="407" width="56" height="26" rx="6"/>
+    <text x="880" y="425" text-anchor="middle" class="num">#4</text></g>
+
+  <text x="470" y="575" class="sec">Node numbers match the Certificate index in the README. Blue lines link issuer to domain. Green lines link domain to certificate.</text>
+</svg>

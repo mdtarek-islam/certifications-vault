@@ -1,0 +1,5 @@
+# Local secrets and measurements
+.env
+.env.*
+!.env.example
+docs/local/

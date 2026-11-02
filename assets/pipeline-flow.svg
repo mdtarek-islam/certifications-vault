@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-labelledby="t d">
+  <title id="t">How to add a certificate</title>
+  <desc id="d">Four steps: save the PDF with the naming rule, update the index table, update the architecture SVG, verify the link.</desc>
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #e6edf3; font-size: 13px; }
+    .h { font-size: 15px; font-weight: 600; }
+    .s { fill: #8b949e; font-size: 12px; }
+    .node { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+    .out { fill: #161b22; stroke: #3fb950; stroke-width: 1; }
+    .focus { fill: #161b22; stroke: #58a6ff; stroke-width: 1; }
+    .edge { fill: none; stroke: #58a6ff; stroke-width: 2; stroke-dasharray: 8 8; animation: flow 1.6s linear infinite; }
+    .edge.green { stroke: #3fb950; }
+    .d1 { animation-delay: 0.2s; } .d2 { animation-delay: 0.4s; } .d3 { animation-delay: 0.6s; }
+    .d4 { animation-delay: 0.8s; } .d5 { animation-delay: 1.0s; } .d6 { animation-delay: 1.2s; }
+    @keyframes flow { to { stroke-dashoffset: -16; } }
+    @media (prefers-reduced-motion: reduce) { .edge { animation: none; } }
+  </style>
+  <defs>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3fb950"/></marker>
+  </defs>
+  <rect width="960" height="420" fill="#0d1117"/>
+
+  <text class="s" x="40" y="28" text-anchor="start">Add a certificate</text>
+  <rect class="focus" x="40" y="50" width="190" height="70" rx="6"/>
+  <text class="h" x="135" y="74" text-anchor="middle">1. Save the PDF</text>
+  <text class="s" x="135" y="93" text-anchor="middle">ISSUER - Title.pdf</text>
+  <text class="s" x="135" y="109" text-anchor="middle">CLAUDE ACADEMY for badges</text>
+  <path class="edge d1" d="M230 85 H270" marker-end="url(#ab)"/>
+  <rect class="node" x="270" y="50" width="190" height="70" rx="6"/>
+  <text class="h" x="365" y="74" text-anchor="middle">2. Update the index</text>
+  <text class="s" x="365" y="93" text-anchor="middle">row in Certificate index</text>
+  <text class="s" x="365" y="109" text-anchor="middle">issuer table in Overview</text>
+  <path class="edge d2" d="M460 85 H500" marker-end="url(#ab)"/>
+  <rect class="node" x="500" y="50" width="190" height="70" rx="6"/>
+  <text class="h" x="595" y="74" text-anchor="middle">3. Update the SVG</text>
+  <text class="s" x="595" y="93" text-anchor="middle">assets/architecture.svg</text>
+  <text class="s" x="595" y="109" text-anchor="middle">node and counts</text>
+  <path class="edge d3" d="M690 85 H730" marker-end="url(#ab)"/>
+  <rect class="out" x="730" y="50" width="190" height="70" rx="6"/>
+  <text class="h" x="825" y="74" text-anchor="middle">4. Verify the link</text>
+  <text class="s" x="825" y="93" text-anchor="middle">open Verify link, or</text>
+  <text class="s" x="825" y="109" text-anchor="middle">read details on the PDF</text>
+  <rect class="node" x="40" y="200" width="190" height="60" rx="6"/>
+  <text class="h" x="135" y="224" text-anchor="middle">Repository root</text>
+  <text class="s" x="135" y="243" text-anchor="middle">place the PDF here</text>
+  <path class="edge d4" d="M135 120 V200" marker-end="url(#ab)"/>
+  <rect class="node" x="270" y="200" width="190" height="60" rx="6"/>
+  <text class="h" x="365" y="224" text-anchor="middle">Document link</text>
+  <text class="s" x="365" y="243" text-anchor="middle">encode spaces as %20</text>
+  <path class="edge d5" d="M365 120 V200" marker-end="url(#ab)"/>
+  <rect class="node" x="500" y="200" width="190" height="60" rx="6"/>
+  <text class="h" x="595" y="224" text-anchor="middle">Domain and date row</text>
+  <text class="s" x="595" y="243" text-anchor="middle">node sits under both</text>
+  <path class="edge d6" d="M595 120 V200" marker-end="url(#ab)"/>
+  <rect class="node" x="730" y="200" width="190" height="60" rx="6"/>
+  <text class="h" x="825" y="224" text-anchor="middle">Claude Academy</text>
+  <text class="s" x="825" y="243" text-anchor="middle">public Verify link</text>
+  <path class="edge green d2" d="M825 120 V200" marker-end="url(#ag)"/>
+  <text class="s" x="40" y="310" text-anchor="start">Example file name: AWS - Job Roles in the Cloud.pdf</text>
+</svg>
