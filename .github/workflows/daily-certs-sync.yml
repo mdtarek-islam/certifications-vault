@@ -1,0 +1,37 @@
+name: Daily certificate sync
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pypdf Pillow
+
+      - name: Sync certificate index
+        run: python scripts/sync_certificates.py
+
+      - name: Commit and push if changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "MD Tarek Islam"
+            git config user.email "md.tarek.mlearn@gmail.com"
+            git add docs/certificates-index.json assets/architecture.svg README.md
+            git commit -m "chore(certs): daily index sync"
+            git push
+          else
+            echo "No changes."
+          fi

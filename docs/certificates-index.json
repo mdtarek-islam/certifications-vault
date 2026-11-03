@@ -1,0 +1,123 @@
+{
+  "certificates": [
+    {
+      "completed": "2026-10-17",
+      "domain": "Cloud",
+      "issuer": "AWS",
+      "path": "AWS - Billing and Cost Management.pdf",
+      "sha256": "08d0e53e617d325c0428121f6baa9f88c3617fa14b6c3902cfc3ec313782c4aa",
+      "size": 296128,
+      "title": "AWS Billing and Cost Management"
+    },
+    {
+      "completed": "2026-10-17",
+      "domain": "Machine learning",
+      "issuer": "AWS",
+      "path": "AWS - Fundamentals of Machine Learning.pdf",
+      "sha256": "af927943df225bc222ed140657bd1ef7664a08c3fb894209b3f7e6680b59861f",
+      "size": 296047,
+      "title": "Fundamentals of Machine Learning and Artificial Intelligence"
+    },
+    {
+      "completed": "2026-10-17",
+      "domain": "Generative AI",
+      "issuer": "AWS",
+      "path": "AWS - Fundamentals of Prompt Engineering with Claude.pdf",
+      "sha256": "12eccda3b994baff16e8ba094ccfe4e9ef32872044565173aafb624c4c709db5",
+      "size": 296152,
+      "title": "Fundamentals of Prompt Engineering with Claude"
+    },
+    {
+      "completed": "2026-10-17",
+      "domain": "AI tooling",
+      "issuer": "AWS",
+      "path": "AWS - Introduction to Claude Platform on AWS.pdf",
+      "sha256": "6dde6306c6ab07f3adee42361691d7ccf8f2ed275146eff2475ae5ff5bda611a",
+      "size": 296009,
+      "title": "Introduction to Claude Platform on AWS"
+    },
+    {
+      "completed": "2026-10-17",
+      "domain": "Generative AI",
+      "issuer": "AWS",
+      "path": "AWS - Introduction to Generative AI - Art of the Possible.pdf",
+      "sha256": "f5979b7d27da0af47e7ab29f14f7f5656c4d20914bf4a62f3f90435c56c6ac96",
+      "size": 295980,
+      "title": "Introduction to Generative AI: Art of the Possible"
+    },
+    {
+      "completed": "2026-10-17",
+      "domain": "Cloud",
+      "issuer": "AWS",
+      "path": "AWS - Job Roles in the Cloud.pdf",
+      "sha256": "ba1fd20a09d8251c60e5a2214bbecccb9ee2af69f6422c27316d897ecb093d51",
+      "size": 295833,
+      "title": "Job Roles in the Cloud"
+    },
+    {
+      "completed": "2026-10-15",
+      "domain": "AI tooling",
+      "issuer": "Claude Academy",
+      "path": "CLAUDE ACADEMY - Claude 101.pdf",
+      "sha256": "fce219f346ea406e1ef3749bf0bef2456a7a8f9e45f33d2b4a53fc16966d1eda",
+      "size": 185242,
+      "title": "Claude 101",
+      "verify_url": "https://academy.claude.com/verify/35734aed9d946c2bcf04142d81f72c80"
+    },
+    {
+      "completed": "2026-10-15",
+      "domain": "AI tooling",
+      "issuer": "Claude Academy",
+      "path": "CLAUDE ACADEMY - Claude Code 101.pdf",
+      "sha256": "8e7479fc644700db0e49ab1947344dc0ab06af39b55aa9670e6f5ab86b2923a7",
+      "size": 186700,
+      "title": "Claude Code 101",
+      "verify_url": "https://academy.claude.com/verify/f3429b2c413ef3b1cbf0316be64b62fa"
+    },
+    {
+      "completed": "2026-10-16",
+      "domain": "Generative AI",
+      "issuer": "Claude Academy",
+      "path": "CLAUDE ACADEMY - AI Capabilities and Limitations.pdf",
+      "sha256": "7807814ff71834037923cb9cf559ca1960ad68f93c6019ae4275b93d3f73a7d1",
+      "size": 204540,
+      "title": "AI capabilities and limitations",
+      "verify_url": "https://academy.claude.com/verify/b568951506af1f595bf62a845933b65d"
+    },
+    {
+      "completed": "2026-10-16",
+      "domain": "Generative AI",
+      "issuer": "Claude Academy",
+      "path": "CLAUDE ACADEMY - AI Fluency Framework Foundations.pdf",
+      "sha256": "a36e49eeaf07bb87dcd086f469709f0329c33a731d726355ee640716656461cb",
+      "size": 210028,
+      "title": "AI Fluency: Framework and foundations",
+      "verify_url": "https://academy.claude.com/verify/aa0fddd2f7ab5515d59de5722cd4d8f2"
+    },
+    {
+      "completed": "2026-10-16",
+      "domain": "AI tooling",
+      "issuer": "Claude Academy",
+      "path": "CLAUDE ACADEMY - Claude Code in Action.pdf",
+      "sha256": "29fcc3c102f012c86cb17ad3fc4eba03c00fa22eca5c023fa703ccb916fb7b2c",
+      "size": 197351,
+      "title": "Claude Code in action",
+      "verify_url": "https://academy.claude.com/verify/9dfc136a80ea983955109f4a35fc79b9"
+    }
+  ],
+  "generated": "2026-11-02",
+  "schema_version": 1,
+  "summary": {
+    "by_domain": {
+      "AI tooling": 4,
+      "Cloud": 2,
+      "Generative AI": 4,
+      "Machine learning": 1
+    },
+    "by_issuer": {
+      "AWS": 6,
+      "Claude Academy": 5
+    },
+    "total": 11
+  }
+}
