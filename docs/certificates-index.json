@@ -103,21 +103,64 @@
       "size": 197351,
       "title": "Claude Code in action",
       "verify_url": "https://academy.claude.com/verify/9dfc136a80ea983955109f4a35fc79b9"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Other",
+      "issuer": "Coursera",
+      "path": "COURSERA - UNESCO Global MOOC on the Ethics of AI.pdf",
+      "sha256": "43c44549be554902160c625cdc455b467b0869a052d4b8b9fa247d97cb7c5497",
+      "size": 304102,
+      "title": "UNESCO Global MOOC on the Ethics of AI",
+      "verify_url": "https://coursera.org/verify/PZO97NIP2AY0"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Other",
+      "issuer": "Google",
+      "path": "COURSERA - GOOGLE AI for Brainstorming and Planning.pdf",
+      "sha256": "34333ec1510a2153dec76c938a7a1aaf7e49b7bba64a9515514fbff38b4dbbae",
+      "size": 300243,
+      "title": "GOOGLE AI for Brainstorming and Planning",
+      "verify_url": "https://coursera.org/verify/BWL9FQN89VS3"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Other",
+      "issuer": "Google",
+      "path": "COURSERA - GOOGLE AI for Research and Insights.pdf",
+      "sha256": "905bd63177d4766de132e3b208425fe342b156f8c25c15db447684337f55127a",
+      "size": 300327,
+      "title": "GOOGLE AI for Research and Insights",
+      "verify_url": "https://coursera.org/verify/O3WNXP62Y81A"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Other",
+      "issuer": "Google",
+      "path": "COURSERA - GOOGLE AI Fundamentals.pdf",
+      "sha256": "5f1b5ece64bec2502981435aee4b795076d955267f3d90fa3c277ddfe3365c7b",
+      "size": 300042,
+      "title": "GOOGLE AI Fundamentals",
+      "verify_url": "https://coursera.org/verify/3BRU6TFH81Y8"
     }
   ],
-  "generated": "2026-11-02",
+  "generated": "2026-11-13",
   "schema_version": 1,
   "summary": {
     "by_domain": {
       "AI tooling": 4,
       "Cloud": 2,
       "Generative AI": 4,
-      "Machine learning": 1
+      "Machine learning": 1,
+      "Other": 4
     },
     "by_issuer": {
       "AWS": 6,
-      "Claude Academy": 5
+      "Claude Academy": 5,
+      "Coursera": 1,
+      "Google": 3
     },
-    "total": 11
+    "total": 15
   }
 }

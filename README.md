@@ -9,12 +9,14 @@ A personal vault of PDF certificates and completion badges, indexed by issuer, d
 This repository stores the PDF certificates and completion badges earned by Md Tarek Islam. It contains no software.
 
 <!-- CERTS-COUNT:START -->
-It holds 11 documents from 2 issuers, completed between 15 and 17 October 2026.
+It holds 15 documents from 4 issuers, completed between 15 October 2026 and 12 November 2026.
 
 | Issuer | Documents | Completed |
 |---|---|---|
 | AWS | 6 | 17 Oct 2026 |
 | Claude Academy | 5 | 15 to 16 Oct 2026 |
+| Coursera | 1 | 12 Nov 2026 |
+| Google | 3 | 12 Nov 2026 |
 <!-- CERTS-COUNT:END -->
 
 ## Architecture
@@ -49,6 +51,10 @@ The second diagram shows the steps to add a certificate to the vault.
 | 9 | AI capabilities and limitations | Claude Academy | Generative AI | 16 Oct 2026 | [PDF](./CLAUDE%20ACADEMY%20-%20AI%20Capabilities%20and%20Limitations.pdf) | [Verify](https://academy.claude.com/verify/b568951506af1f595bf62a845933b65d) |
 | 10 | AI Fluency: Framework and foundations | Claude Academy | Generative AI | 16 Oct 2026 | [PDF](./CLAUDE%20ACADEMY%20-%20AI%20Fluency%20Framework%20Foundations.pdf) | [Verify](https://academy.claude.com/verify/aa0fddd2f7ab5515d59de5722cd4d8f2) |
 | 11 | Claude Code in action | Claude Academy | AI tooling | 16 Oct 2026 | [PDF](./CLAUDE%20ACADEMY%20-%20Claude%20Code%20in%20Action.pdf) | [Verify](https://academy.claude.com/verify/9dfc136a80ea983955109f4a35fc79b9) |
+| 12 | UNESCO Global MOOC on the Ethics of AI | Coursera | Other | 12 Nov 2026 | [PDF](./COURSERA%20-%20UNESCO%20Global%20MOOC%20on%20the%20Ethics%20of%20AI.pdf) | [Verify](https://coursera.org/verify/PZO97NIP2AY0) |
+| 13 | GOOGLE AI for Brainstorming and Planning | Google | Other | 12 Nov 2026 | [PDF](./COURSERA%20-%20GOOGLE%20AI%20for%20Brainstorming%20and%20Planning.pdf) | [Verify](https://coursera.org/verify/BWL9FQN89VS3) |
+| 14 | GOOGLE AI for Research and Insights | Google | Other | 12 Nov 2026 | [PDF](./COURSERA%20-%20GOOGLE%20AI%20for%20Research%20and%20Insights.pdf) | [Verify](https://coursera.org/verify/O3WNXP62Y81A) |
+| 15 | GOOGLE AI Fundamentals | Google | Other | 12 Nov 2026 | [PDF](./COURSERA%20-%20GOOGLE%20AI%20Fundamentals.pdf) | [Verify](https://coursera.org/verify/3BRU6TFH81Y8) |
 <!-- CERTS:END -->
 
 ### Engineering findings
