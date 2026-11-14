@@ -106,7 +106,77 @@
     },
     {
       "completed": "2026-11-12",
-      "domain": "Other",
+      "domain": "Artificial intelligence",
+      "issuer": "Coursera",
+      "path": "COURSERA - GOOGLE AI for App Building.pdf",
+      "sha256": "17dbf4dc62ed42f0b91e1c9731011ee59a900d0bcd00ad82e27809737ee9ffe3",
+      "size": 299907,
+      "title": "Google AI for App Building",
+      "verify_url": "https://coursera.org/verify/L0RQ80WFZE68"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Artificial intelligence",
+      "issuer": "Coursera",
+      "path": "COURSERA - GOOGLE AI for Brainstorming and Planning.pdf",
+      "sha256": "34333ec1510a2153dec76c938a7a1aaf7e49b7bba64a9515514fbff38b4dbbae",
+      "size": 300243,
+      "title": "Google AI for Brainstorming and Planning",
+      "verify_url": "https://coursera.org/verify/BWL9FQN89VS3"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Artificial intelligence",
+      "issuer": "Coursera",
+      "path": "COURSERA - GOOGLE AI for Content Creation.pdf",
+      "sha256": "7db37e1e76db0100643b1bae57cb2b7564889ba1ac8278b39fce13f0fb9ed796",
+      "size": 299847,
+      "title": "Google AI for Content Creation",
+      "verify_url": "https://coursera.org/verify/FVYW2OAM2DGL"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Artificial intelligence",
+      "issuer": "Coursera",
+      "path": "COURSERA - GOOGLE AI for Data Analysis.pdf",
+      "sha256": "54e789d7c933dafd0e224db1db4040b9963832c8a0e95076fe60fa76a9715942",
+      "size": 299737,
+      "title": "Google AI for Data Analysis",
+      "verify_url": "https://coursera.org/verify/4ULG1YZSR1SE"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Artificial intelligence",
+      "issuer": "Coursera",
+      "path": "COURSERA - GOOGLE AI for Research and Insights.pdf",
+      "sha256": "905bd63177d4766de132e3b208425fe342b156f8c25c15db447684337f55127a",
+      "size": 300327,
+      "title": "Google AI for Research and Insights",
+      "verify_url": "https://coursera.org/verify/O3WNXP62Y81A"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Artificial intelligence",
+      "issuer": "Coursera",
+      "path": "COURSERA - GOOGLE AI for Writing and Communicating.pdf",
+      "sha256": "6949e273327f8760da219d39164a033b76f0f1a5ada9e2f38a763bd4e4dbe9a0",
+      "size": 300048,
+      "title": "Google AI for Writing and Communicating",
+      "verify_url": "https://coursera.org/verify/G8IHQ9WHQ94V"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "Artificial intelligence",
+      "issuer": "Coursera",
+      "path": "COURSERA - GOOGLE AI Fundamentals.pdf",
+      "sha256": "5f1b5ece64bec2502981435aee4b795076d955267f3d90fa3c277ddfe3365c7b",
+      "size": 300042,
+      "title": "Google AI Fundamentals",
+      "verify_url": "https://coursera.org/verify/3BRU6TFH81Y8"
+    },
+    {
+      "completed": "2026-11-12",
+      "domain": "AI governance",
       "issuer": "Coursera",
       "path": "COURSERA - UNESCO Global MOOC on the Ethics of AI.pdf",
       "sha256": "43c44549be554902160c625cdc455b467b0869a052d4b8b9fa247d97cb7c5497",
@@ -115,52 +185,42 @@
       "verify_url": "https://coursera.org/verify/PZO97NIP2AY0"
     },
     {
-      "completed": "2026-11-12",
-      "domain": "Other",
-      "issuer": "Google",
-      "path": "COURSERA - GOOGLE AI for Brainstorming and Planning.pdf",
-      "sha256": "34333ec1510a2153dec76c938a7a1aaf7e49b7bba64a9515514fbff38b4dbbae",
-      "size": 300243,
-      "title": "GOOGLE AI for Brainstorming and Planning",
-      "verify_url": "https://coursera.org/verify/BWL9FQN89VS3"
+      "completed": "2026-11-13",
+      "domain": "Artificial intelligence",
+      "issuer": "Coursera",
+      "path": "COURSERA - GOOGLE AI for App Deployment.pdf",
+      "sha256": "54105fe5e6960ab072c8e2b2e2a3e0c0cefea5f00befecc3e3dbe3260edc61c7",
+      "size": 300215,
+      "title": "Google AI for App Deployment",
+      "verify_url": "https://coursera.org/verify/4MNO8Y6JBPUC"
     },
     {
-      "completed": "2026-11-12",
-      "domain": "Other",
-      "issuer": "Google",
-      "path": "COURSERA - GOOGLE AI for Research and Insights.pdf",
-      "sha256": "905bd63177d4766de132e3b208425fe342b156f8c25c15db447684337f55127a",
-      "size": 300327,
-      "title": "GOOGLE AI for Research and Insights",
-      "verify_url": "https://coursera.org/verify/O3WNXP62Y81A"
-    },
-    {
-      "completed": "2026-11-12",
-      "domain": "Other",
-      "issuer": "Google",
-      "path": "COURSERA - GOOGLE AI Fundamentals.pdf",
-      "sha256": "5f1b5ece64bec2502981435aee4b795076d955267f3d90fa3c277ddfe3365c7b",
-      "size": 300042,
-      "title": "GOOGLE AI Fundamentals",
-      "verify_url": "https://coursera.org/verify/3BRU6TFH81Y8"
+      "completed": "2026-11-13",
+      "domain": "Artificial intelligence",
+      "issuer": "Coursera",
+      "path": "COURSERA - GOOGLE AI Professional Certificate.pdf",
+      "sha256": "a8ddcb79ecb11e92acb8a409067d3e3cb43bb20af63bb98bdc3bd2ff5d499224",
+      "size": 419612,
+      "title": "Google AI Professional Certificate",
+      "verify_url": "https://coursera.org/verify/professional-cert/KYDGIRH2F93K"
     }
   ],
   "generated": "2026-11-13",
   "schema_version": 1,
   "summary": {
     "by_domain": {
+      "AI governance": 1,
       "AI tooling": 4,
+      "Artificial intelligence": 9,
       "Cloud": 2,
       "Generative AI": 4,
-      "Machine learning": 1,
-      "Other": 4
+      "Machine learning": 1
     },
     "by_issuer": {
       "AWS": 6,
       "Claude Academy": 5,
-      "Coursera": 1,
-      "Google": 3
+      "Coursera": 10
     },
-    "total": 15
+    "total": 21
   }
 }
