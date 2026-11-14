@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Index the certificates in this repository.
 
+Deterministic: it reads file names, PDF text and metadata, and calls no network service.
+
 Outputs:
   docs/certificates-index.json   machine-readable index
   assets/architecture.svg        animated taxonomy (domains, issuers, counts)
-  README.md                      tables between the CERTS and CERTS-COUNT markers
+  README.md                      blocks between the CERTS, CERTS-COUNT and CERTS-STATUS markers
 
 Manual fixes go in docs/certificates-overrides.json, keyed by file sha256.
 The script reads that file and never writes it.
@@ -25,7 +27,7 @@ from urllib.parse import quote
 from xml.sax.saxutils import escape
 
 SCHEMA_VERSION = 1
-SKIP_DIRS = {".git", ".github", "docs", "assets", "scripts", "tests"}
+SKIP_DIRS = {"docs", "assets", "scripts", "tests", "node_modules", "venv", "__pycache__"}
 EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".webp"}
 OVERRIDE_FIELDS = ("title", "issuer", "domain", "completed", "verify_url")
 
@@ -54,11 +56,13 @@ ISSUER_PATTERNS = [
 
 # Order matters: the first domain with a matching keyword wins.
 DOMAIN_KEYWORDS = [
+    ("AI governance", ["ethics", "governance", "responsible ai"]),
     ("Machine learning", ["machine learning", "deep learning", "neural", "tensorflow",
                           "pytorch", "scikit", "reinforcement"]),
     ("Generative AI", ["generative", "prompt", "llm", "ai fluency", "ai capabilities",
                        "chatgpt", "gpt"]),
     ("AI tooling", ["claude", "copilot", "mcp", "langchain"]),
+    ("Artificial intelligence", ["ai", "artificial intelligence"]),
     ("Data", ["data", "sql", "analytics", "pandas", "statistics", "power bi", "tableau"]),
     ("Cloud", ["cloud", "aws", "azure", "gcp", "kubernetes", "docker", "devops",
                "billing", "serverless"]),
@@ -74,11 +78,14 @@ MON = r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?"
 DATE_RES = [
     ("iso", re.compile(r"(?<!\d)((?:19|20)\d\d)[-/._](\d{2})[-/._](\d{2})(?!\d)")),
     ("mdy", re.compile(r"\b" + MON + r"\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})\b", re.I)),
-    ("dmy", re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+" + MON + r",?\s+(\d{4})\b", re.I)),
+    ("dmy", re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)?[\s-]+" + MON + r",?[\s-]+(\d{4})\b", re.I)),
 ]
 DATE_STRIP_RE = re.compile(r"[\s._-]*(?:19|20)\d\d[-._]\d{2}[-._]\d{2}[\s._-]*$")
 VERIFY_RE = re.compile(r"https?://[^\s)>\"']*verify[^\s)>\"']*", re.I)
 DATE_HINT_RE = re.compile(r"complet|issued|awarded|date", re.I)
+# A wrapped URL continues on the next line as one token of path characters.
+URL_TAIL_RE = re.compile(r"[A-Za-z0-9._~%/-]+")
+URL_CODE_RE = re.compile(r"[A-Z0-9]{6,}")
 
 
 def _make_date(y, m, d):
@@ -137,8 +144,33 @@ def classify_domain(title):
     return "Other"
 
 
+def find_verify_url(text):
+    """Return the first verification URL in text, rejoining one wrapped line."""
+    lines = (text or "").splitlines()
+    for i, line in enumerate(lines):
+        m = VERIFY_RE.search(line)
+        if not m:
+            continue
+        url = m.group(0)
+        nxt = lines[i + 1].strip() if i + 1 < len(lines) else ""
+        at_line_end = m.end() == len(line.rstrip())
+        if at_line_end and URL_TAIL_RE.fullmatch(nxt) and ("/" in nxt or URL_CODE_RE.fullmatch(nxt)):
+            url += nxt
+        return url.rstrip(".,")
+    return None
+
+
+def _brand_case(title):
+    """Rewrite a shouted issuer name, such as GOOGLE, in its canonical case."""
+    for name, _ in ISSUER_PATTERNS:
+        if name.isupper() or " " in name or "." in name:
+            continue
+        title = re.sub(r"\b%s\b" % re.escape(name.upper()), name, title)
+    return title
+
+
 def _clean_title(title):
-    title = re.sub(r"\s+", " ", title or "").strip()
+    title = _brand_case(re.sub(r"\s+", " ", title or "").strip())
     title = re.sub(r"\s*[:\-]\s*[^:]*\bcompletion badge\s*$", "", title, flags=re.I)
     return title.replace(" - ", ": ").strip()
 
@@ -150,11 +182,19 @@ def _title_from_filename(stem):
     return _clean_title(stem)
 
 
+def _issuer_from_prefix(path: Path):
+    """Return the issuer named by an `ISSUER - Title` file name, else None."""
+    stem = path.stem
+    if " - " not in stem:
+        return None
+    prefix = stem.split(" - ", 1)[0].strip()
+    if not prefix:
+        return None
+    return detect_issuer(prefix) or (prefix.title() if prefix.isupper() else prefix)
+
+
 def _issuer_from_name(path: Path, root: Path):
     stem = path.stem
-    if " - " in stem:
-        prefix = stem.split(" - ", 1)[0].strip()
-        return detect_issuer(prefix) or (prefix.title() if prefix.isupper() else prefix)
     parent = path.parent
     if parent != root:
         return detect_issuer(parent.name) or parent.name
@@ -223,16 +263,16 @@ def describe(path: Path, root: Path):
         meta, text = _read_pdf(path)
         meta_text = " ".join(meta.get(k, "") for k in ("/Producer", "/Creator", "/Author",
                                                          "/Subject", "/Title"))
-        issuer = detect_issuer(meta_text) or detect_issuer(text)
+        # The file name prefix is the owner's explicit choice, so it wins over PDF text.
+        issuer = _issuer_from_prefix(path) or detect_issuer(meta_text) or detect_issuer(text)
         title = _clean_title(meta.get("/Title", ""))
         if not title or title.lower() == "untitled":
             title = _title_from_text(text, issuer)
         completed = find_date(text) or _pdf_date(meta.get("/CreationDate"))
-        m = VERIFY_RE.search(text)
-        verify = m.group(0).rstrip(".,") if m else None
+        verify = find_verify_url(text)
     else:
         completed = _exif_date(path)
-    issuer = issuer or _issuer_from_name(path, root) or "Unknown"
+    issuer = issuer or _issuer_from_prefix(path) or _issuer_from_name(path, root) or "Unknown"
     title = title or _title_from_filename(path.stem) or path.stem
     completed = completed or find_date(path.stem)
     rec.update(title=title, issuer=issuer, domain=classify_domain(title), completed=completed)
@@ -241,14 +281,21 @@ def describe(path: Path, root: Path):
     return rec
 
 
+def is_certificate(rel):
+    """True when a repo-relative path names a certificate file the index covers."""
+    rel = Path(rel)
+    if any(part.startswith(".") for part in rel.parts):
+        return False
+    if len(rel.parts) > 1 and rel.parts[0] in SKIP_DIRS:
+        return False
+    return rel.suffix.lower() in EXTENSIONS
+
+
 def scan(root):
     root = Path(root)
     out = []
     for p in sorted(root.rglob("*")):
-        rel = p.relative_to(root)
-        if rel.parts[0] in SKIP_DIRS or not p.is_file():
-            continue
-        if p.suffix.lower() in EXTENSIONS:
+        if p.is_file() and is_certificate(p.relative_to(root)):
             out.append(describe(p, root))
     return sort_records(out)
 
@@ -378,10 +425,21 @@ def _replace_block(text, tag, body, anchors):
     return text.rstrip("\n") + "\n\n" + block + "\n"
 
 
+def render_status_block(records):
+    dates = sorted(r["completed"] for r in records if r["completed"])
+    if not dates:
+        return "Active. The vault grows as courses complete."
+    d = dt.date.fromisoformat(dates[-1])
+    return ("Active. The vault grows as courses complete, and the latest entry is dated "
+            "%d %s %d." % (d.day, d.strftime("%B"), d.year))
+
+
 def render_readme(text, records):
     eol_crlf = "\r\n" in text
     text = text.replace("\r\n", "\n")
     text = _replace_block(text, "CERTS-COUNT", render_count_block(records), ["## Overview"])
+    if "<!-- CERTS-STATUS:START -->" in text:
+        text = _replace_block(text, "CERTS-STATUS", render_status_block(records), [])
     text = _replace_block(text, "CERTS", render_cert_block(records),
                           ["### Certificate index", "## Features"])
     return text.replace("\n", "\r\n") if eol_crlf else text
@@ -498,14 +556,9 @@ def _same(a, b):
     return a is not None and a.replace("\r\n", "\n") == b.replace("\r\n", "\n")
 
 
-def main(argv=None):
-    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--root", default=str(Path(__file__).resolve().parent.parent))
-    ap.add_argument("--check", action="store_true", help="exit 1 if outputs would change")
-    ap.add_argument("--dry-run", action="store_true", help="report changes, write nothing")
-    args = ap.parse_args(argv)
-    root = Path(args.root)
-
+def plan(root):
+    """Return (outputs, changed paths, final records) for a vault without writing."""
+    root = Path(root)
     records = scan(root)
     overrides = load_overrides(root)
     index_path = root / "docs" / "certificates-index.json"
@@ -521,8 +574,20 @@ def main(argv=None):
     readme = root / "README.md"
     if readme.exists():
         outputs[readme] = render_readme(_read(readme), final)
-
     changed = [p for p, text in outputs.items() if not _same(_read(p), text)]
+    return outputs, changed, final
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--root", default=str(Path(__file__).resolve().parent.parent))
+    ap.add_argument("--check", action="store_true", help="exit 1 if outputs would change")
+    ap.add_argument("--dry-run", action="store_true", help="report changes, write nothing")
+    args = ap.parse_args(argv)
+    root = Path(args.root)
+
+    outputs, changed, final = plan(root)
+    readme = root / "README.md"
     for p in changed:
         print("%s %s" % ("would change" if args.check or args.dry_run else "update",
                          p.relative_to(root).as_posix()))

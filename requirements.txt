@@ -1,2 +1,2 @@
-pypdf
-Pillow
+pypdf==6.21.4
+Pillow==12.3.0
